@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Sensor Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body class="bg-dark text-light">
+    <div class="container mt-5">
+        <h1>Real-Time Analysis</h1>
+        <div class="row">
+            <!-- Left column for sensor data -->
+            <div class="col-md-6">
+                <div id="weather-data" class="mt-4">
+                    <h3>Sensor Data</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item graph-btn" data-type="Temperature (°C)">
+                            <strong>Temperature:</strong> <span id="temperature"></span> °C
+                        </li>
+                        <li class="list-group-item graph-btn" data-type="Humidity (%)">
+                            <strong>Humidity:</strong> <span id="humidity"></span> %
+                        </li>
+                        <li class="list-group-item graph-btn" data-type="lpg">
+                            <strong>LPG:</strong> <span id="lpg"></span>
+                        </li>
+                        <li class="list-group-item graph-btn" data-type="co">
+                            <strong>CO:</strong> <span id="co"></span>
+                        </li>
+                        <li class="list-group-item graph-btn" data-type="smoke">
+                            <strong>Smoke:</strong> <span id="smoke"></span>
+                        </li>
+                    </ul>            
+                </div>
+                <canvas id="myChart" style="display:none; margin-top: 20px;"></canvas>
+            </div>
+            <!-- Right column for predictions -->
+            <div class="col-md-6">
+                <div class="prediction-container mt-4">
+                    <h3>Predictions:</h3>
+                    <ul class="list-group" id="prediction-data">
+                        <li class="list-group-item"><strong>OneClassSVM:</strong> <span class="model-prediction" data-model="OneClassSVM" id="svm-prediction"></span></li>
+                        <li class="list-group-item"><strong>LocalOutlierFactor:</strong> <span class="model-prediction" data-model="LocalOutlierFactor" id="lof-prediction"></span></li>
+                        <li class="list-group-item"><strong>IsolationForest:</strong> <span class="model-prediction" data-model="IsolationForest" id="isof-prediction"></span></li>
+                        <li class="list-group-item"><strong>EllipticEnvelope:</strong> <span class="model-prediction" data-model="EllipticEnvelope" id="elliptic-prediction"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-5">
+            <p>&copy; 2024 Models. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
