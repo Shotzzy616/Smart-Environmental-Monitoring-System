@@ -1,4 +1,3 @@
-```markdown
 # Smart Environmental Monitoring System
 
 This project is a Smart Environmental Monitoring System that uses various sensors to collect environmental data and employs machine learning models for anomaly detection. The data is visualized in real-time through a web interface, providing users with insights into environmental conditions.
@@ -28,6 +27,8 @@ This project is a Smart Environmental Monitoring System that uses various sensor
   - JavaScript, HTML, CSS for the frontend
   - Machine Learning Libraries: Scikit-learn for model implementations
   - Chart.js for graphing library
+  - 
+```markdown
 
 ## Getting Started
 
